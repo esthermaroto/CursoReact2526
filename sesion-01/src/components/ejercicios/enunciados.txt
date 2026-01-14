@@ -1,0 +1,33 @@
+EJERCICIO 1
+crear una lista de contactos el usuario puede eliminar y crear contactos
+requisitos: 
+crear una interfaz contacto con el id, nombre, teléfono, email 
+el componente debe de tener un formulario con 3 input:
+nombre, teléfono, email
+un botón para agregar el contacto 
+una lista que muestre todos los contactos 
+un boton para eliminar un contacto
+
+las funcionalidades deben de ser: 
+- agregar un nuevo contacto (generar un ID automático con alguna librería npm)
+- eliminar un contacto por su ID
+- Limpiar el formulario después de agregar
+- mostrar un mensaje si no hay contactos almacenados 
+
+EJERCICIO 2
+Crear un formulario de login con validación básica
+Tiene que tenr 2 campos: email y password
+hay q validar que los campos no estén vacíos
+hay q validar con alguna expresión regular que el formato del email sea válido 
+hay q mostrar/ocultar la contraseña con un boton
+hay q mostrar mensajes de error personalizados 
+
+14/01
+EJERCICIO 1
+crear un componente llamado "Boton" que le pase como props un texto, el tipo de botón y el evento "onClick".
+El tipo de boton tendrá 3 tipos "primary, secondary, dangerous".
+Si es: 
+Primary tendrá un bg-blue-500 hover:bg-blue-700
+Secondary bg-gray-500 hover:bg-gray-700
+Danger bg-red-500 hover:bg-red-700
+(Todos tendrán un texto blanco)
