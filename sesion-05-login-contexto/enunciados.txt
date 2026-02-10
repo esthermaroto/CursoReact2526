@@ -1,0 +1,4 @@
+crear un formulario de login con usuario, admin@admin.com, contraseña 1234, que permitirá visualizar una ruta llamada dashboard que tendra un boton para cerrar sesión. 
+Para el resto de usuarios, solo estará disponible la ruta "/".
+
+Utilizar sonner (toast) para mostrar un mensaje para iniciar sesión de bienvenida y para cerrar sesión
