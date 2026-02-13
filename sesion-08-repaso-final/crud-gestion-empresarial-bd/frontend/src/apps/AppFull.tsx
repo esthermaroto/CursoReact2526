@@ -1,30 +1,31 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import NavBar from "../components/commons/NAvBar";
 import HomePage from "../pages/HomePage";
-import LoginPage from "../pages/LoginPage";
-import DashBoardPage from "../pages/DashBoardPage";
-import ProtectedRoute from "../components/commons/ProtectedRoute";
+import DashboardPage from "../pages/DashboardPage";
+import NavBar from "../components/common/NavBar";
+import ProtectedRoute from "../components/common/ProtectedRoute";
 import CompaniesPage from "../pages/CompaniesPage";
 import CompaniesDetailPage from "../pages/CompaniesDetailPage";
-import ContactPage from "../pages/ContactPage";
+import ContactsPage from "../pages/ContactsPage";
+import LoginPage from "../pages/LoginPage";
 
 const AppFull = () => {
   return (
-    <div>
+    <div className="min-h-screen bg-gray-100">
       <NavBar />
       <Routes>
-        {/* -----------Rutas públicas------------*/}
+        {/* ----------Rutas públicas ------- */}
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
-        {/* -----------Rutas protegidas---------- */}
+        {/* ----------Rutas protegidas ------- */}
         <Route
           path="/dashboard"
           element={
             <ProtectedRoute>
-              <DashBoardPage />
+              <DashboardPage />
             </ProtectedRoute>
           }
         />
+
         <Route
           path="/companies"
           element={
@@ -45,11 +46,12 @@ const AppFull = () => {
           path="/contacts"
           element={
             <ProtectedRoute>
-              <ContactPage />
+              <ContactsPage />
             </ProtectedRoute>
           }
         />
-        <Route path="/*" element={<Navigate to="/" />} />
+        {/* <Route path="*" element={<NotFoundPage />} /> */}
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
   );

@@ -1,9 +1,5 @@
-import React from 'react'
-
 const CompaniesDetailPage = () => {
-  return (
-    <div>CompaniesDetailPage</div>
-  )
-}
+  return <div>CompaniesDetailPage</div>;
+};
 
-export default CompaniesDetailPage
+export default CompaniesDetailPage;

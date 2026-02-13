@@ -1,4 +1,11 @@
-import type { AuthResponse, Company, CreateCompanyDTO, LoginDTO, RegisterDTO, User } from "../types";
+import { get } from "http";
+import type {
+  AuthResponse,
+  Company,
+  CreateCompanyDTO,
+  LoginDTO,
+  RegisterDTO,
+} from "../types";
 
 // [companies]
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001/api";
@@ -126,6 +133,7 @@ export const companiesAPI = {
     const response = await fetch(`${API_URL}/companies/${id}/contacts`, {
       headers: getHeaders(),
     });
+
     if (!response.ok) {
       const error = await response
         .json()
@@ -138,10 +146,9 @@ export const companiesAPI = {
 
 // ========================================
 // USUARIOS (USERS)
-// ========================================
+//
 
-export const authAPI={
-  
+export const authAPI = {
   async login(data: LoginDTO): Promise<AuthResponse> {
     const response = await fetch(`${API_URL}/auth/login`, {
       method: "POST",
@@ -149,11 +156,19 @@ export const authAPI={
       body: JSON.stringify(data),
     });
     if (!response.ok) {
-      throw new Error("Error al iniciar sesión");
+      throw new Error("Error al iniciar sesión");
     }
     return response.json();
   },
-
+  async getMe(): Promise<{ user: User }> {
+    const response = await fetch(`${API_URL}/auth/me`, {
+      headers: getHeaders(),
+    });
+    if (!response.ok) {
+      throw new Error("Error al obtener información del usuario");
+    }
+    return response.json();
+  },
   async register(data: RegisterDTO): Promise<AuthResponse> {
     const response = await fetch(`${API_URL}/auth/register`, {
       method: "POST",
@@ -165,17 +180,4 @@ export const authAPI={
     }
     return response.json();
   },
-
-  async getMe():Promise<{user:User}>{
-    const response = await fetch(`${API_URL}/auth/me`, {
-      headers: getHeaders(),
-    })
-    if(!response.ok){
-      throw new Error("Error al obtener el usuario")
-    }
-    return response.json()
-  }
-  
-  //register para casa
-  
-}
+};
